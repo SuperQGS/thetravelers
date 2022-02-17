@@ -87,7 +87,7 @@ footer {
     margin-top: -40px; /* negative value of footer height */
     height: 26px;
     text-align: center;
-    color:#444;
+    color:rgb(40, 40, 40);
     padding-top: 14px;
     clear:both;
 }
@@ -190,7 +190,7 @@ aside {
 #wrap { min-height: 100%; width: 100%; color: white}
 
 body {
-    background:#111 url(/web/20130328173046im_/https://minecraft.net/images/bg_main.png);
+    background:rgb(40, 40, 40) url(/web/20130328173046im_/https://minecraft.net/images/bg_main.png);
 }
 
 body:before {
@@ -218,3 +218,7 @@ header a, header a:active, header a:visited {
 }
 
 html, body { height: 100%; }
+
+.server {
+    float: right;
+}
