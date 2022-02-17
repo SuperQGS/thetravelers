@@ -1,0 +1,220 @@
+body {
+    margin-top: 0;
+    padding-top: 0;
+    font-family: courier;
+}
+
+#wrap {
+    min-height: 100%;
+    width: 100%;
+}
+
+#header {
+    height: 48px;
+    background-color: darkgrey;
+}
+
+#header-container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#logo {
+    float: left;
+    width: 260px;
+    height: 48px;
+    background-color: black;
+    display: block;
+    overflow: hidden;
+    text-indent: -10000px;
+}
+
+#menu {
+    list-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 14px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 415px;
+    margin-top: 0;
+    float: left;
+    margin-left: 0;
+    font-family: courier;
+}
+
+#menu li {
+    float: left;
+    margin-left: 10px;
+}
+
+#main {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 1em;
+    position: relative;
+    padding: 20px 0 40px;
+
+}
+
+
+.button_buy_now {
+    background-color: orange;
+    background: transparent url(play.png) no-repeat top center;
+    width:212px;
+    height:44px;
+}
+
+.button {
+    text-indent: -10000px;
+    text-align: left;
+    overflow:hidden;
+    border:none;
+    outline:none;
+    background-repeat:no-repeat;
+    display:inline-block;
+}
+
+#slideshow {
+    padding-top:230px;
+    background: transparent url(slideshow2.png) no-repeat top center;
+    text-align:center;
+}
+
+footer {
+    position: relative;
+    margin-top: -40px; /* negative value of footer height */
+    height: 26px;
+    text-align: center;
+    color:#444;
+    padding-top: 14px;
+    clear:both;
+}
+
+footer a, footer a:visited {
+    color: #777;
+    text-decoration:none;
+}
+
+section, aside {
+    margin-bottom: 3em;
+}
+section.left {
+    width:640px;
+    float:left;
+    font-size: 20px;
+}
+aside {
+    width:300px;
+    margin-left:40px;
+    float:left;
+}
+
+#header_container {
+    width:1000px;
+    margin:0 auto;
+}
+
+#logo {
+    float: left;
+    width:260px;
+    height:48px;
+    background: transparent url(logo.png) no-repeat 0 1px;
+    display:block;
+    overflow:hidden;
+    text-indent:-10000px;
+}
+
+#menu {
+    list-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding:14px 0 0;
+    width: 415px;
+    margin-top:0;
+    float: left;
+    margin-left: 0;
+}
+
+#menu li {
+    float:left;
+    margin-left:10px;
+}
+
+#menu li a, #menu li a:active, #menu li a:visited {
+    color:#fff;
+}
+
+#menu li ul {
+    margin:0;
+    padding:0;
+    position:absolute;
+    display:none;
+    z-index:5;
+    padding-top:6px;
+}
+
+#menu li ul li {
+    float:none;
+    margin:0;
+    display:inline;
+}
+
+#menu li ul li a {
+    display:block;
+    padding:6px 10px;
+    background:#333;
+    white-space:nowrap;
+}
+
+#menu li ul li a:hover {
+    background:#444;
+}
+
+#userbox {
+    width:300px;
+    text-align:right;
+    padding:14px 0 0;
+    float: left;
+}
+
+#main {
+    width:1000px;
+    margin: 0 auto;
+    margin-top:1em;
+    position: relative;
+    padding: 20px 0 40px;
+}
+
+#wrap { min-height: 100%; width: 100%; color: white}
+
+body {
+    background:#111 url(/web/20130328173046im_/https://minecraft.net/images/bg_main.png);
+}
+
+body:before {
+    content:"";
+    height:100%;
+    float:left;
+    width:0;
+    margin-top:-32767px;
+}
+
+header {
+    height: 48px;
+    background: #211710 url(/web/20130328173046im_/https://minecraft.net/images/bg_top.png);
+    color: black;
+}
+
+header a, header a:active, header a:visited {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#special {
+    color: purple;
+}
+
+html, body { height: 100%; }

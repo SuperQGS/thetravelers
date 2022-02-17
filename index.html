@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="live.css">
+    </head>
+    <body>
+        <div id="wrap"> <!--wrap div?-->
+            <div id="header"> <!--top page header-->
+                <div id="header-container">
+                    <a id="logo" href="index.html">The Travelers Live</a>
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="play.html">Play</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="plugins.html">Plugins</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="main">
+                <section class="left">
+                    <div>
+                        <!--iframe width="560" height="315" src="https://www.youtube.com/embed/nORM7S4UQSw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe-->
+                        <img id="slides" width=100% src=sc0.png>
+                    </div>
+                    <p>A Player Led <b>Survival MMO</b> centered around traveling. <b>The Travelers Live</b> is a platform and network built for players by players.</p>
+                    <hr>
+                    <p><b>Explore</b> apocalyptic wastelands, <b>loot</b> abandoned cities, <b>uncover</b> dark secrets, or do something entirely <b>different.</b></p>
+                    <p>Browse the server list to find your ideal experience, or tinker around to create something completely new.</p>
+                    <p>The Travelers Live is open source, and anyone is free to host whatever experience they like.</p>
+                </section> <!--leftmost side-->
+                <aside id="slideshow">
+                    <p><a href="play.html" class="button button_buy_now">PLAY</a></p>
+                    <p>click here to get started!</p>
+                </aside>
+            </div> <!--rest of the page-->
+            <!--div id="footer">LightningWB is a silly goose | footer placeholder</div--> <!--copywright, idk if we need this-->
+        </div>
+    </body>
+    <script>
+        var slide = 0;
+        setInterval(function() {
+            
+            if (slide == 2) {
+                slide = 0;
+            } else {
+                slide++;
+            }
+            
+            document.getElementById("slides").src = "sc" + slide + ".png";
+        
+        }, 3000);
+    </script>
+</html>
