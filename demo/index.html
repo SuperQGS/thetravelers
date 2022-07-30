@@ -92,6 +92,7 @@
     <p>This event loader is a modified version of CoherentNonsense's event builder. Click the buttons below to view the different events present in the game. Not all features will translate, as some have to do with player inventories.</p>
     <button onclick="load(JSON.stringify(gas))">Gas Station (original event)</button>
         <button onclick="load(JSON.stringify(gas))">House (slightly modified event from The Travelers, most will need to be rewritten other than the stuff on the TV)</button>
+        <button onclick="load(JSON.stringify(greenhouse))">Greenhouse (unreleased event)</button>
     </div>
       
   </div>
@@ -376,6 +377,174 @@
     }
   }
 };
+        
+        var greenhouse = {
+  "id": "greenhouse",
+  "weight": "1",
+  "rooms": {
+    "main": {
+      "id": "main",
+      "title": "a greenhouse",
+      "body": "two buildings creak eerily in the fog. a metal, skeletal structure is wrapped with a white cover. various tears let sections of the material flutter in the wind.<br><br>next to it is a building of worn cement. It's gray silhouette almost perfectly matches the color of the sky.",
+      "btns": [
+        {
+          "for": "green",
+          "text": "the metal structure"
+        },
+        {
+          "for": "cement",
+          "text": "the cement building"
+        },
+        "leave"
+      ]
+    },
+    "green": {
+      "id": "green",
+      "title": "the metal structure",
+      "body": "rows of elevated planter boxes lay mostly empty, with an occasional dead plant or pile of sticks. bins of dirt lay knocked on their sides, spilling their contents over the floor and tables. <br><br>across the room, you spot the corner of a small white object poking out of the debris and soil.",
+      "btns": [
+        {
+          "for": "manual",
+          "text": "the object"
+        }
+      ]
+    },
+    "cement": {
+      "id": "cement",
+      "title": "the cement building",
+      "body": "the building is one story tall and angular, with a few small windows. it looks big enough to hold a room or two. in the front is a metal door with a sign bolted on.<span class=\"doc\">Temperature Controlled Environment<br>Warning: active machinery during winter months.<br></span><br>pulling the handle reveals that it has been rusted shut.",
+      "btns": [
+        {
+          "for": "inside",
+          "text": "open the door",
+          "req": true,
+          "reqItems": [
+            {
+              "id": "crowbar",
+              "title": "crowbar",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "for": "main",
+          "text": "the two buildings"
+        },
+        "leave"
+      ]
+    },
+    "inside": {
+      "id": "inside",
+      "title": "a dark room",
+      "body": "the door unlatches with a satisfying clunk, opening to a room that appears to be a third of the building. light barely trickles into the space, revealing a network of pipes running across the walls and into a large generator. empty fuel cans scatter the floor.<br><br>straight ahead is another door, painted white.",
+      "btns": [
+        {
+          "for": "insulated",
+          "text": "the white door"
+        }
+      ]
+    },
+    "manual": {
+      "id": "manual",
+      "title": "a dirt covered letter",
+      "body": "pulling the submerged item to the surface reveals a piece of paper, crumpled and stained by soil.<span class=\"doc\">From The National Department Of Agriculture<br><hr><br>Notice Of Subsidized Loan Termination<br><br>This letter is to inform you that your establishment's inspection has been finalized. It has been found to breach the following subsidy contract requirements:<br><br>1). Abstain from the production of food<br>2). Abstain from the distribution of seeds<br><br>Because of this, your contract to receive loans from the National Agricultural Right To Incentives Subsidy will be terminated.<br><br>Your establishment can re-apply for the subsidy in 6 months, where it will be examined again for breaches in the contact.<br><br>No further action is needed.<br></span><br>there's nothing else of value here.<br>",
+      "btns": [
+        {
+          "for": "main",
+          "text": "the two buildings"
+        },
+        "leave"
+      ]
+    },
+    "insulated": {
+      "id": "insulated",
+      "title": "an insulated room",
+      "body": "planter boxes full of dead plants and various materials fill the floor of the room. massive lights and heaters point at them, mounted from the ceiling.<br><br>in the back is a mound of clothes and blankets.",
+      "btns": [
+        {
+          "for": "planterloot",
+          "text": "loot the planter boxes"
+        },
+        {
+          "for": "note",
+          "text": "the blankets"
+        }
+      ]
+    },
+    "note": {
+      "id": "note",
+      "title": "a pile of fabric",
+      "body": "as you lift a blanket off of the pile, a small note falls out.<br><span class=\"doc\">I'm extremely lucky to have ended up here, but I know that my days are numbered. What is a person supposed to do when their death is soon and certain? It's so cold outside, and all of the radio channels are silent. There is no hope of rescue.<br><br>I have enough fuel to last a week, if I ration it. I'm not going to. My last day will be warm and comfortable, there's no point in anything else now. I'm not even scared anymore, just sad. Too bad no one will ever read this.<br></span>you look down at the mound of clothes and blankets, but don't dig further.",
+      "btns": [
+        "leave"
+      ]
+    },
+    "planterloot": {
+      "id": "planterloot",
+      "title": "the planter boxes",
+      "body": "protected from the environment by a concrete shell, these boxes still yield some useful supplies. closer to the blankets is a handheld radio.",
+      "loot": true,
+      "nextId": "insulated",
+      "size": 10,
+      "lootTable": [
+        {
+          "id": "wood_stick",
+          "min": 0,
+          "max": 15,
+          "chance": 0.5
+        },
+        {
+          "id": "shovel",
+          "min": 0,
+          "max": 1,
+          "chance": 0.3
+        },
+        {
+          "id": "machete",
+          "min": 0,
+          "max": 1,
+          "chance": 0.05
+        },
+        {
+          "id": "radio",
+          "min": 1,
+          "max": 1,
+          "chance": 1
+        },
+        {
+          "id": "scrap_metal",
+          "min": 0,
+          "max": 6,
+          "chance": 0.3
+        },
+        {
+          "id": "battery",
+          "min": 0,
+          "max": 3,
+          "chance": 0.2
+        },
+        {
+          "id": "rope",
+          "min": 0,
+          "max": 6,
+          "chance": 0.5
+        },
+        {
+          "id": "plastic",
+          "min": 0,
+          "max": 8,
+          "chance": 0.3
+        },
+        {
+          "id": "cloth",
+          "min": 0,
+          "max": 8,
+          "chance": 0.4
+        }
+      ]
+    }
+  }
+}
     </script>
 </body>
 </html>
