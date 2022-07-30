@@ -87,11 +87,295 @@
         <div id="event-loot"></div>
         <div id="event-btns"></div>
       </div>
+    
+    <br><br><br><br>
+    <p>This event loader is a modified version of CoherentNonsense's event builder. Click the buttons below to view the different events present in the game. Not all features will translate, as some have to do with player inventories.</p>
+    <button onclick="load(JSON.stringify(gas))">Gas Station (original event)</button>
+        <button onclick="load(JSON.stringify(gas))">House (slightly modified event from The Travelers, most will need to be rewritten other than the stuff on the TV)</button>
     </div>
+      
   </div>
-
+    
+    
   <script src="src/items.js"></script>
   <script src="src/room.js"></script>
   <script src="src/index.js"></script>
+    <script>
+    
+    document.getElementById("room-list-container").style.display = "none";
+    document.getElementById("current-room").style.display = "none";
+        
+        
+        var monument = {
+  "id": "monument",
+  "weight": "1",
+  "rooms": {
+    "main": {
+      "id": "main",
+      "title": "the monument", 
+      "body": "a colossal structure reaches for the sky, its surface a translucent and deep purple. it is cool to the touch, and at eye level, an engraving has been etched roughly into the hard rock.<span class=\"doc\">A SEPULCHER EAST, AT OCEAN'S EDGE. <br> FROM ABOVE, WREST THOSE BELOW <br> TO EMBARK ON ENDLESS JOURNEY. <br><br> MUNDUS</span>",
+      "btns": [
+        "leave"
+      ]
+    }
+  }
+}
+        
+        var gas = {
+  "id": "gas-station",
+  "weight": "1",
+  "rooms": {
+    "main": {
+      "id": "main",
+      "title": "a roadside gas station",
+      "body": "the overhang of a gas station illuminates the pumps below through the misty fog. a convenience store sits behind it, coated in darkness. the parking lot is empty of any cars.",
+      "btns": [
+        {
+          "for": "pumps",
+          "text": "the pumps"
+        },
+        {
+          "for": "building",
+          "text": "the building"
+        },
+        "leave"
+      ]
+    },
+    "pumps": {
+      "id": "pumps",
+      "title": "the gas pumps",
+      "body": "underneath the overhang things seem eerily normal. the space seems divorced from time, you can almost imagine yourself here in the world before. the lights overhead receive power from some unknown source.<br><br>there is a note taped over the screen of the gas pumps.",
+      "btns": [
+        {
+          "for": "note",
+          "text": "the note"
+        },
+        "leave"
+      ]
+    },
+    "note": {
+      "id": "note",
+      "title": "the note",
+      "body": "the paper is faded, and torn out of a yellow notepad.<span class=\"doc\">out of gas. i'm sorry. we can no longer help. we tried. please leave us alone.<br></span>",
+      "btns": [
+        {
+          "for": "building",
+          "text": "the building"
+        },
+        "leave"
+      ]
+    },
+    "building": {
+      "id": "building",
+      "title": "the dark building",
+      "body": "the front of the store is made of windows, letting light from the overhang just barely seep into the row of aisles. a checkout counter sits shaded in the corner. the glass door is locked, but has long ago been broken into shards that litter the ground.",
+      "btns": [
+        {
+          "for": "aisles",
+          "text": "the aisles"
+        },
+        {
+          "for": "counter",
+          "text": "the counter"
+        },
+        "leave"
+      ]
+    },
+    "counter": {
+      "id": "counter",
+      "title": "the checkout counter",
+      "body": "behind the counter is the cash register, a long dead desktop computer, and a legal pad with some scrawled writing.<br><br><span class=\"doc\"><strike>we're sorry! come back next ti</strike><br><br><strike>out of gas, leave us alo</strike><br><br>in a grim sort of way, it's funny. my job used to cause so many problems for the world. now it can't solve enough.<br></span><br>the rest of the page is torn out.",
+      "btns": [
+        {
+          "for": "aisles",
+          "text": "the aisles"
+        }
+      ]
+    },
+    "aisles": {
+      "id": "aisles",
+      "title": "the bare aisles",
+      "body": "each row of shelves lack any stock other than debris, none of which seems useful. each shelf rests on a row of modular panels, covered in dust.<br><br>in the corner is a checkout counter, and in the back is a metal door.",
+      "btns": [
+        {
+          "for": "panels",
+          "text": "lift up the panels"
+        },
+        {
+          "for": "counter",
+          "text": "the counter"
+        },
+        {
+          "for": "door",
+          "text": "open the door"
+        }
+      ]
+    },
+    "panels": {
+      "id": "panels",
+      "title": "under the shelves",
+      "body": "lifting up the panels reveals a bed of ancient dust, but also various supplies that have been lost and remain here after all this time. <br><br>a faded magazine cover shows the surface of mars. wiping the dust off the  page reveals the publishing year 2044.",
+      "loot": true,
+      "nextId": "aisles",
+      "size": 10,
+      "lootTable": [
+        {
+          "id": "scrap_metal",
+          "min": 0,
+          "max": 10,
+          "chance": 0.5
+        },
+        {
+          "id": "rope",
+          "min": 0,
+          "max": 4,
+          "chance": 0.3
+        },
+        {
+          "id": "cloth",
+          "min": 1,
+          "max": 10,
+          "chance": 0.8
+        },
+        {
+          "id": "battery",
+          "min": 0,
+          "max": 3,
+          "chance": 0.2
+        },
+        {
+          "id": "medical_pill",
+          "min": 0,
+          "max": 3,
+          "chance": 0.2
+        },
+        {
+          "id": "wood_door",
+          "min": 0,
+          "max": 1,
+          "chance": 0.001
+        },
+        {
+          "id": "fire_extinguisher",
+          "min": 0,
+          "max": 1,
+          "chance": 0.1
+        }
+      ]
+    },
+    "door": {
+      "id": "door",
+      "title": "behind the store",
+      "body": "the metal door opens and slams behind you. outside is a thin strip of concrete, with dumpsters and recycling bins. patches of dirt spill into the lot.<br><br>you're startled to see the remains of a human, laying sprawled out further down the strip. one of its arms has a shattered bone, white fragments scatter around it. a small plant is growing where the stomach used to be. it's a beautiful plant.",
+      "btns": [
+        "leave"
+      ]
+    }
+  }
+}
+        
+        var house = {
+  "id": "torohouse",
+  "weight": "1",
+  "rooms": {
+    "main": {
+      "id": "main",
+      "title": "an old home",
+      "body": "the house stands strong, despite the world's decay. the roof, though coated in the soot that layers everything, has no holes. someone could even be still living here.",
+      "btns": [
+        {
+          "for": "living",
+          "text": "enter"
+        },
+        "leave"
+      ]
+    },
+    "living": {
+      "id": "living",
+      "title": "the living room",
+      "body": "passing through the threshold it becomes clear the family who once lived here is long gone. pictures of smiling people are partially covered by long-settled dust. there's footprints in the dust on the floor, though. someone came through here not too long ago.",
+      "btns": [
+        {
+          "for": "back",
+          "text": "the back room"
+        },
+        "leave"
+      ]
+    },
+    "back": {
+      "id": "back",
+      "title": "the back room",
+      "body": "there's a television hanging from the wall, and a video is displayed on it. the power source is indeterminable. the video is only a minute long, looping constantly. it features an old, charismatic man in a clean suit, standing on a large, sleek stage. he talks briefly before being cut off by the loop.<span class=\"doc\">\"what, in today's age, is the most efficient method of transferring computer data?\"<br><br>the man pauses, smiling at the audience.<br><br>\"the fastest possible download speed, in megabits per second, is when NASA loads a ton of hard drives into a truck and ships them across the country. that is the approach we need to have with technology. that is the approach we need to have...\"<br><br>the man again pauses for effect<br><br>\"with the future.\"<br><br>the picture begins to glitch as the audience breaks into applause.<br></span><br>the video loops again. there's a closet in the corner of this room.  ",
+      "btns": [
+        {
+          "for": "closet",
+          "text": "the closet"
+        },
+        "leave"
+      ]
+    },
+    "closet": {
+      "id": "closet",
+      "title": "the closet",
+      "body": "the space is cramped. hanging up is a single pair of jeans, tattered and covered in ash from the knee down. there's a single cardboard box on the ground with some stuff inside.",
+      "btns": [
+        {
+          "for": "box",
+          "text": "search"
+        },
+        "leave"
+      ]
+    },
+    "box": {
+      "id": "box",
+      "title": "a cardboard box",
+      "body": "the box has been slightly folded with fresh creases. someone's looked inside already. ",
+      "visitedBody": "in spite of the dying world, the box is clean, and still might have something left.",
+      "visitTarget": "box",
+      "loot": true,
+      "nextId": "leave",
+      "size": 10,
+      "lootTable": [
+        {
+          "id": "scrap_metal",
+          "min": 1,
+          "max": 4,
+          "chance": 0.8
+        },
+        {
+          "id": "cloth",
+          "min": 1,
+          "max": 4,
+          "chance": 0.5
+        },
+        {
+          "id": "soda_bottle",
+          "min": 1,
+          "max": 1,
+          "chance": 0.33
+        },
+        {
+          "id": "medical_pill",
+          "min": 1,
+          "max": 1,
+          "chance": 0.3
+        },
+        {
+          "id": "battery",
+          "min": 1,
+          "max": 1,
+          "chance": 0.15
+        },
+        {
+          "id": "fire_extinguisher",
+          "min": 1,
+          "max": 1,
+          "chance": 0.05
+        }
+      ]
+    }
+  }
+};
+    </script>
 </body>
 </html>
