@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travelers Event Creator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="main">
+    <div id="room-list-container">
+      <button id="save-btn" class="hotbar">save</button>
+      <button id="view-json-btn" class="hotbar">view json</button>
+        
+      <button class="hotbar" onclick="document.getElementById('json-file').click()">load event</button>
+      <input style="display: none" type="file" id="json-file" class="hotbar" accept="application/json">
+      
+      <button class="hotbar" onclick="document.getElementById('item-json-file').click()">load items</button>
+      <input style="display: none" type="file" id="item-json-file" class="hotbar" accept="application/json">
+      
+      <input id="event-id" placeholder="event-id">
+      <input type="number" id="event-weight" placeholder="event-weight (number)">
+      <hr>
+
+      <button id="new-room-btn" class="hotbar">new room</button>
+      <div id="room-list"></div>
+    </div>
+    <div id="current-room">
+      <div>
+        <input type="text" id="room-id" placeholder="room-id">
+        <input type="text" id="room-title" placeholder="room title">
+      </div>
+      <textarea id="room-body" placeholder="room body"></textarea>
+      
+      <label for="room-has-exit">
+        <input type="checkbox" id="room-has-exit">
+        has exit
+      </label>
+      <label for="room-is-lootable">
+        <input type="checkbox" id="room-is-lootable">
+        is lootable
+      </label>
+      <label for="room-has-visited">
+        <input type="checkbox" id="room-has-visited">
+        second visited text
+      </label>
+      <hr>
+      
+      <div id="corridors-container">
+        <div>room corridors</div>
+        <input type="button" id="add-corridor-btn" value="add corridor">
+        <div id="corridor-list"></div>
+      </div>
+      
+      <div id="loot-container">
+        <div>room loot</div>
+        <div id="loot-next-id" style="margin: 10px 0;">
+          <select id="loot-next-id-select">
+          </select>
+        </div>
+        <input type="button" id="add-loot-btn" value="add loot" style="margin: 10px 0;">
+        <div id="loot-list"></div>
+      </div>
+
+      <hr>
+
+      <div id="has-visited-container">
+        <div>second visit text</div>
+        <textarea id="room-visited-body" placeholder="room visited body"></textarea>
+        <label for="has-visited-target-select">
+          change after visiting: 
+          <select id="has-visited-target-select"></select>
+        </label>
+        <hr>
+      </div>
+
+      <button id="delete-room-btn">Delete Room</button>
+    </div>
+    <div id="room-preview">
+      <pre>
+        <code id="json-container"></code>
+      </pre>
+      <div id="event-container">
+        <div id="event-title"></div>
+        <div id="event-body"></div>
+        <div id="event-loot"></div>
+        <div id="event-btns"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/items.js"></script>
+  <script src="src/room.js"></script>
+  <script src="src/index.js"></script>
+</body>
+</html>
